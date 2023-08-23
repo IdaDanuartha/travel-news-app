@@ -266,7 +266,103 @@ class HomeScreen extends StatelessWidget {
                 );
               },/**/
             ),
+          ),
+          const SizedBox(height: 30,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'Short for you',
+                style: kPoppinsBold.copyWith(
+                  fontSize: SizeConfig.blockSizeHorizontal! * 4.5
+                ),
+              ),
+              Text(
+                'View all',
+                style: kPoppinsMedium.copyWith(
+                  fontSize: SizeConfig.blockSizeHorizontal! * 3
+                ),
+              )
+            ],
+          ),
+          const SizedBox(height: 20,),
+          SizedBox(
+            height: 88,
+            child: ListView.builder(
+              itemCount: 10,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return Container(
+                  padding: EdgeInsets.all(9),
+                  margin: EdgeInsets.only(
+                    right: 20
+                  ),
+                  width: 208,
+                  height: 88,
+                  decoration: BoxDecoration(
+                    color: kWhite,
+                    borderRadius: BorderRadius.circular(kBorderRadius),
+                    boxShadow: [
+                      BoxShadow(
+                          color: kDarkBlue.withOpacity(0.051),
+                          offset: const Offset(0.0, 3.0),
+                          blurRadius: 24.0,
+                          spreadRadius: 0.0
+                      )
+                    ]
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 70,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(kBorderRadius),
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(
+                              'https://images.pexels.com/photos/206359/pexels-photo-206359.jpeg?auto=compress&cs=tinysrgb&w=300'
+                            )
+                          )
+                        ),
+                      ),
+                      const SizedBox(width: 12,),
+                      Flexible(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Top Trending Island in 2022',
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: kPoppinsSemiBold.copyWith(
+                                fontSize: SizeConfig.blockSizeHorizontal! * 3.5
+                              ),
+                            ),
+                            const SizedBox(height: 9,),
+                            Row(
+                              children: [
+                                SvgPicture.asset('assets/eye_icon.svg'),
+                                const SizedBox(width: 4,),
+                                Text(
+                                  '40,999',
+                                  style: kPoppinsMedium.copyWith(
+                                    color: kGrey,
+                                    fontSize: SizeConfig.blockSizeHorizontal! * 3
+                                  ),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                );
+              },
+            ),
           )
+
         ],
       ),
     );
