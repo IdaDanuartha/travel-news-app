@@ -12,6 +12,7 @@ class NewsDetailScreen extends StatelessWidget {
     SizeConfig().init(context);
 
     return Scaffold(
+      backgroundColor: kLighterWhite,
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -40,7 +41,7 @@ class NewsDetailScreen extends StatelessWidget {
                     alignment: Alignment.topCenter,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 40,
+                        horizontal: kPaddingHorizontal,
                         vertical: 60
                       ),
                       child: Row(
@@ -81,7 +82,72 @@ class NewsDetailScreen extends StatelessWidget {
                 ],
               ),
             ),
-
+            Container(
+              padding: const EdgeInsets.symmetric(
+                horizontal: kPaddingHorizontal
+              ),
+              transform: Matrix4.translationValues(0, -14, 0),
+              child: Text(
+                'Unravel mysteries\nof the Maldives',
+                style: kPoppinsBold.copyWith(
+                  color: kDarkBlue,
+                  fontSize: SizeConfig.blockSizeHorizontal! * 7
+                ),
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(
+                horizontal: kPaddingHorizontal,
+                vertical: 16
+              ),
+              padding: EdgeInsets.symmetric(
+                horizontal: SizeConfig.blockSizeHorizontal! * 2.5
+              ),
+              height: 54,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(kBorderRadius),
+                border: Border.all(
+                  color: kBorderColor
+                )
+              ),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    radius: 13,
+                    backgroundColor: kBlue,
+                    backgroundImage: NetworkImage(
+                      'https://cdn3d.iconscout.com/3d/premium/thumb/man-avatar-6299539-5187871.png?f=webp'
+                    ),
+                  ),
+                  SizedBox(width: SizeConfig.blockSizeHorizontal! * 2.5,),
+                  Text(
+                    "Keanu Carpent May 17 • 8 min read",
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: kPoppinsRegular.copyWith(
+                      color: kGrey,
+                      fontSize: SizeConfig.blockSizeHorizontal! * 3
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: kPaddingHorizontal
+              ),
+              child: Text(
+                'Maldives is an archipelagic state located in South Asia, situated in the Indian Ocean. It lies southwest of Sri Lanka and India, about 750 kilometers (470 miles; 400 nautical miles) from the Asian continent\'s mainland. The chain of 26 atolls stretches across the Equator from Ihavandhippolhu Atoll in the north to Addu Atoll in the south.\n\nComprising a territory spanning roughly 90,000 square kilometers (353,000 sq mi) including the sea, land area of all the islands comprises 298 square kilometers (115 sq mi), Maldives is one of the world\'s most geographically dispered sovereign states and the smallest Asian Country as well as one of the smallest Muslim-majority countries by land area and, with around 557, 751 inhabitants, the 2nd east populous country in Asia. Male is the capital and the most populated city, traditionally called the "King\'s Island" where the ancient royal dynastics ruled for its central location',
+                style: kPoppinsMedium.copyWith(
+                  fontSize: SizeConfig.blockSizeHorizontal! * 4,
+                  color: kDarkBlue
+                ),
+              ),
+            ),
+            SizedBox(
+              height: SizeConfig.blockSizeVertical! * 5,
+            )
           ],
         ),
       ),
