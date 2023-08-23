@@ -17,13 +17,54 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index){
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: kLighterWhite,
-        body: HomeScreen(),
+        body: const HomeScreen(),
+        bottomNavigationBar: BottomNavigationBar(
+          elevation: 0,
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: kWhite,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+            icon: _selectedIndex == 0
+              ? SvgPicture.asset('assets/home_selected_icon.svg')
+              : SvgPicture.asset('assets/home_unselected_icon.svg'),
+            label: ''
+            ),
+            BottomNavigationBarItem(
+                icon: _selectedIndex == 1
+                    ? SvgPicture.asset('assets/bookmark_selected_icon.svg')
+                    : SvgPicture.asset('assets/bookmark_unselected_icon.svg'),
+                label: ''
+            ),
+            BottomNavigationBarItem(
+                icon: _selectedIndex == 2
+                    ? SvgPicture.asset('assets/notification_selected_icon.svg')
+                    : SvgPicture.asset('assets/notification_unselected_icon.svg'),
+                label: ''
+            ),
+            BottomNavigationBarItem(
+                icon: _selectedIndex == 3
+                    ? SvgPicture.asset('assets/profile_selected_icon.svg')
+                    : SvgPicture.asset('assets/profile_unselected_icon.svg'),
+                label: ''
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+        ),
       ),
     );
   }
@@ -250,7 +291,7 @@ class HomeScreen extends StatelessWidget {
                           Container(
                             height: 38,
                             width: 38,
-                            padding: EdgeInsets.all(10),
+                            padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(kBorderRadius),
                               color: kLightWhite
@@ -294,8 +335,8 @@ class HomeScreen extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return Container(
-                  padding: EdgeInsets.all(9),
-                  margin: EdgeInsets.only(
+                  padding: const EdgeInsets.all(9),
+                  margin: const EdgeInsets.only(
                     right: 20
                   ),
                   width: 208,
@@ -316,14 +357,19 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       Container(
                         width: 70,
+                        height: 70,
+                        padding: const EdgeInsets.all(26),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(kBorderRadius),
-                          image: DecorationImage(
+                          image: const DecorationImage(
                             fit: BoxFit.cover,
                             image: NetworkImage(
                               'https://images.pexels.com/photos/206359/pexels-photo-206359.jpeg?auto=compress&cs=tinysrgb&w=300'
                             )
                           )
+                        ),
+                        child: SvgPicture.asset(
+                          'assets/play_icon.svg',
                         ),
                       ),
                       const SizedBox(width: 12,),
