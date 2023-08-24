@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:travel_news/app_styles.dart';
 import 'package:travel_news/size_config.dart';
 
@@ -178,7 +179,147 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ],
                 ),
-              )
+              ),
+              SizedBox(
+                height: SizeConfig.blockSizeVertical! * 2.5,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    'Elly\'s Post',
+                    style: kPoppinsBold.copyWith(
+                      color: kDarkBlue,
+                      fontSize: SizeConfig.blockSizeHorizontal! * 4
+                    ),
+                  ),
+                  Text(
+                    'View all',
+                    style: kPoppinsMedium.copyWith(
+                        color: kBlue,
+                        fontSize: SizeConfig.blockSizeHorizontal! * 3
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: SizeConfig.blockSizeVertical! * 2.5,
+              ),
+              SizedBox(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: 2,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      height: 100,
+                      margin: EdgeInsets.only(
+                        bottom: SizeConfig.blockSizeVertical! * 2.5
+                      ),
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 100,
+                            width: 100,
+                            padding: EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(kBorderRadius),
+                              boxShadow: [
+                                BoxShadow(
+                                    blurRadius: 24,
+                                    spreadRadius: 0,
+                                    offset: Offset(0, 3),
+                                    color: kDarkBlue.withOpacity(0.051)
+                                )
+                              ]
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(kBorderRadius),
+                              child: Image.network(
+                                'https://ik.imagekit.io/tvlk/blog/2021/08/boracay-shutterstock_641355409.png?tr=dpr-2,w-675',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: SizeConfig.blockSizeVertical! * 2.5,
+                          ),
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'News: Politics',
+                                  style: kPoppinsRegular.copyWith(
+                                    color: kDarkBlue,
+                                    fontSize: SizeConfig.blockSizeHorizontal! * 2
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: SizeConfig.blockSizeVertical! * 1,
+                                ),
+                                Text(
+                                  'Iran\'s raging protests Fifth Iranian paramilitary me....',
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: kPoppinsSemiBold.copyWith(
+                                      color: kDarkBlue,
+                                      fontSize: SizeConfig.blockSizeHorizontal! * 3
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: SizeConfig.blockSizeVertical! * 1,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        SvgPicture.asset('assets/calendar_icon.svg'),
+                                        SizedBox(
+                                          width: SizeConfig.blockSizeHorizontal! * 1,
+                                        ),
+                                        Text(
+                                          '16th May',
+                                          style: kPoppinsRegular.copyWith(
+                                            color: kGrey,
+                                            fontSize: SizeConfig.blockSizeHorizontal! * 3
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        SvgPicture.asset('assets/time_icon.svg'),
+                                        SizedBox(
+                                          width: SizeConfig.blockSizeHorizontal! * 1,
+                                        ),
+                                        Text(
+                                          '09 : 32 AM',
+                                          style: kPoppinsRegular.copyWith(
+                                              color: kGrey,
+                                              fontSize: SizeConfig.blockSizeHorizontal! * 3
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ),
+              SizedBox(
+                width: SizeConfig.blockSizeVertical! * 2.5,
+              ),
+
             ],
           ),
         ),
