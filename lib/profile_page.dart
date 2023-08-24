@@ -74,6 +74,19 @@ class ProfilePage extends StatelessWidget {
                     ),
                   )
                 ],
+              ),
+              SizedBox(
+                height: SizeConfig.blockSizeVertical! * 2.5,
+              ),
+              Text(
+                'Every piece of chocolate I ever ate is getting back at me... desserts are very revengeful...',
+                style: kPoppinsMedium.copyWith(
+                  color: kGrey,
+                  fontSize: SizeConfig.blockSizeHorizontal! * 3
+                ),
+              ),
+              SizedBox(
+                height: SizeConfig.blockSizeVertical! * 2.5,
               )
             ],
           ),
