@@ -319,7 +319,45 @@ class ProfilePage extends StatelessWidget {
               SizedBox(
                 width: SizeConfig.blockSizeVertical! * 2.5,
               ),
-
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    'Popular From Elly',
+                    style: kPoppinsBold.copyWith(
+                        color: kDarkBlue,
+                        fontSize: SizeConfig.blockSizeHorizontal! * 4
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                width: SizeConfig.blockSizeVertical! * 2.5,
+              ),
+              SizedBox(
+                height: 143,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      height: 143,
+                      width: 248,
+                      margin: EdgeInsets.only(
+                        right: SizeConfig.blockSizeHorizontal! * 2.5
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(kBorderRadius),
+                        child: Image.network(
+                          'https://awsimages.detik.net.id/community/media/visual/2022/03/21/ilustrasi-objek-wisata-pantai.jpeg?w=1200',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              )
             ],
           ),
         ),
