@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:travel_news/app_styles.dart';
+import 'package:travel_news/home_screen.dart';
 import 'package:travel_news/size_config.dart';
 
 class NewsDetailScreen extends StatelessWidget {
@@ -47,18 +48,33 @@ class NewsDetailScreen extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            height: 50,
-                            width: 50,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(kBorderRadius),
-                              border: Border.all(
-                                color: kWhite
-                              ),
+                          ElevatedButton(
+                            onPressed: () {
+                              ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.transparent,
+                                  elevation: 0.0,
+                                  shadowColor: Colors.transparent
+                              );
+                              Navigator.pop(context);
+                            },
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.transparent,
+                                elevation: 0.0,
+                                shadowColor: Colors.transparent
                             ),
-                            padding: const EdgeInsets.all(12),
-                            child: SvgPicture.asset(
-                              'assets/arrow_back_icon.svg'
+                            child: Container(
+                              height: 50,
+                              width: 50,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(kBorderRadius),
+                                border: Border.all(
+                                  color: kWhite
+                                ),
+                              ),
+                              padding: const EdgeInsets.all(12),
+                              child: SvgPicture.asset(
+                                'assets/arrow_back_icon.svg'
+                              ),
                             ),
                           ),
                           Container(
