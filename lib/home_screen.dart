@@ -162,20 +162,15 @@ class HomeScreen extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
-                      ElevatedButton(
-                        onPressed: () {
+                      GestureDetector(
+                        onTap: (){
                           Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const NewsDetailScreen()
-                            )
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const NewsDetailScreen()
+                              )
                           );
                         },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: kWhite,
-                          elevation: 0.0,
-                          shadowColor: Colors.transparent
-                        ),
                         child: Container(
                           height: 164,
                           decoration: BoxDecoration(
