@@ -161,7 +161,7 @@ class ProfilePage extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            '36..40k',
+                            '36.40k',
                             style: kPoppinsBold.copyWith(
                                 color: kWhite,
                                 fontSize: SizeConfig.blockSizeHorizontal! * 4

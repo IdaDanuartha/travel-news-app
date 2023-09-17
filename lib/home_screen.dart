@@ -11,6 +11,9 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
 
+    Size screenSize = MediaQuery.of(context).size;
+    Orientation orientation = MediaQuery.of(context).orientation;
+
     return SafeArea(
       child: ListView(
         padding: const EdgeInsets.symmetric(
